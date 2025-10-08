@@ -43,3 +43,5 @@ kubectl get pods -l app=redis
 ```
 kubectl exec -it <redis-pod-name> -- redis-cli
 ```
+
+## Expose Port `5000` in Security Group/Firewall Rules if using Cloud
