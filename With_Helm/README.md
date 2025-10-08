@@ -120,7 +120,7 @@ sum(rate(container_network_receive_bytes_total{namespace="default"}[5m])) by (po
 sum(rate(container_network_transmit_bytes_total{namespace="default"}[5m])) by (pod)
 ```
 
-## Cloud / Firewall Notes
+## Cloud / Firewall Note
 
  - Expose Port `9090` (Prometheus) and `31000` (Grafana) in Security Group/Firewall Rules if using Cloud and want to access externally.
 
