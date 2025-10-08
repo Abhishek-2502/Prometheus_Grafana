@@ -24,7 +24,7 @@
 # For Prometheus Monitoring
 management.endpoints.web.exposure.include=health,info,prometheus
 management.endpoint.prometheus.enabled=true
-management.server.port=8081
+management.server.port=8080
 ```
 
 4. Access metrics at:
