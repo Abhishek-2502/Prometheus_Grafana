@@ -1,6 +1,6 @@
 # Prometheus and Grafana for Node Application
 
-1. Add below in server.js after `const app = express();` and before `app.use(helmet()));` if present.
+## 1. Add below in server.js after `const app = express();` and before `app.use(helmet()));` if present.
 ```
 // Prometheus monitoring setup starts here
 import client from 'prom-client';
@@ -50,17 +50,17 @@ app.get('/metrics', async (req, res) => {
 //  Prometheus monitoring setup ends here
 ```
 
-2. Install below dependency:
+## 2. Install below dependency:
 ```
 npm install prom-client
 ```
 
-3. Access metrics at:
+## 3. Access metrics at:
 ```
 http://localhost:5000/metrics
 ```
 
-4. Grafana Dashboard link:
+## 4. Grafana Dashboard link:
 ```
 https://grafana.com/grafana/dashboards/11159-nodejs-application-dashboard/
 ```
