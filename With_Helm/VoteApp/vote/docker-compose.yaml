@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask-app
+    ports:
+      - "5000:80"
+    depends_on:
+      - redis
+    environment:
+      - OPTION_A=Cats
+      - OPTION_B=Dogs
+    restart: always
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
