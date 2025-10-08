@@ -17,17 +17,18 @@
 13. [Common Use Cases](#common-use-cases)
 14. [Best Practices](#best-practices)
 15. [References](#references)
+15. [Author](#author)
 
 ---
 
-## 🧩 Introduction
+## Introduction
 
 **Prometheus** and **Grafana** are two of the most widely used open-source tools for **monitoring, metrics visualization, and alerting** in cloud-native environments.
 Together, they form a powerful stack that helps DevOps engineers, SREs, and developers gain **deep observability** into system performance and reliability.
 
 ---
 
-## ⚙️ What is Prometheus?
+## What is Prometheus?
 
 **Prometheus** is an open-source **systems monitoring and alerting toolkit** originally built at **SoundCloud**. It collects and stores metrics as **time series data**, recording information with a timestamp and optional labels.
 
@@ -35,7 +36,7 @@ Prometheus is designed for **reliability**, **scalability**, and **self-sufficie
 
 ---
 
-## 🌟 Key Features of Prometheus
+## Key Features of Prometheus
 
 * **Multi-dimensional data model** using key-value pairs (labels).
 * **Powerful query language (PromQL)** for aggregating and analyzing metrics.
@@ -47,7 +48,7 @@ Prometheus is designed for **reliability**, **scalability**, and **self-sufficie
 
 ---
 
-## 🧱 Prometheus Architecture
+## Prometheus Architecture
 
 Prometheus follows a **modular and pull-based architecture**:
 
@@ -68,7 +69,7 @@ Prometheus follows a **modular and pull-based architecture**:
 
 ---
 
-## 🧩 Core Components of Prometheus
+## Core Components of Prometheus
 
 | Component             | Description                                                              |
 | --------------------- | ------------------------------------------------------------------------ |
@@ -81,7 +82,7 @@ Prometheus follows a **modular and pull-based architecture**:
 
 ---
 
-## 🧮 Data Model and Metrics Types
+## Data Model and Metrics Types
 
 Prometheus stores data as **time series**, uniquely identified by:
 
@@ -89,7 +90,7 @@ Prometheus stores data as **time series**, uniquely identified by:
 <metric_name>{label1="value1", label2="value2", ...}
 ```
 
-### 🧾 Metric Types
+### Metric Types
 
 | Type          | Description                                                   | Example                      |
 | ------------- | ------------------------------------------------------------- | ---------------------------- |
@@ -100,11 +101,11 @@ Prometheus stores data as **time series**, uniquely identified by:
 
 ---
 
-## 🔍 PromQL – Query Language
+## PromQL – Query Language
 
 **PromQL (Prometheus Query Language)** enables **filtering, aggregating, and analyzing metrics** in real time.
 
-### 🧠 Example Queries
+### Example Queries
 
 ```promql
 # CPU usage per instance
@@ -119,11 +120,11 @@ container_memory_usage_bytes{job="kubernetes"}
 
 ---
 
-## 🚨 Alerting with Prometheus
+## Alerting with Prometheus
 
 Prometheus provides **flexible and rule-based alerting**.
 
-### 🔔 Alert Flow:
+### Alert Flow:
 
 1. Prometheus evaluates **alert rules** based on metrics and thresholds.
 2. Alerts are sent to the **Alertmanager**.
@@ -148,14 +149,14 @@ groups:
 
 ---
 
-## 📊 What is Grafana?
+## What is Grafana?
 
 **Grafana** is an open-source **analytics and visualization platform** for monitoring and observability.
 It integrates with multiple data sources — including Prometheus, Loki, InfluxDB, and Elasticsearch — to create **interactive dashboards and real-time analytics**.
 
 ---
 
-## 🌟 Key Features of Grafana
+## Key Features of Grafana
 
 * Rich **visualization options** (graphs, heatmaps, gauges, tables).
 * **Multi-source support** (Prometheus, Loki, MySQL, etc.).
@@ -166,7 +167,7 @@ It integrates with multiple data sources — including Prometheus, Loki, InfluxD
 
 ---
 
-## 🧱 Grafana Architecture
+## Grafana Architecture
 
 Grafana’s modular structure allows seamless integration with any monitoring ecosystem.
 
@@ -189,7 +190,7 @@ Grafana’s modular structure allows seamless integration with any monitoring ec
 
 ---
 
-## 🔗 Prometheus–Grafana Integration
+## Prometheus–Grafana Integration
 
 Prometheus acts as the **data source**, and Grafana provides the **visualization layer**.
 
@@ -208,7 +209,7 @@ Prometheus acts as the **data source**, and Grafana provides the **visualization
 
 ---
 
-## 💡 Common Use Cases
+## Common Use Cases
 
 | Domain               | Use Case                                         |
 | -------------------- | ------------------------------------------------ |
@@ -220,7 +221,7 @@ Prometheus acts as the **data source**, and Grafana provides the **visualization
 
 ---
 
-## 🧭 Best Practices
+## Best Practices
 
 * Use **consistent metric naming conventions** (snake_case).
 * Leverage **labels** for dimensional metrics.
@@ -233,10 +234,13 @@ Prometheus acts as the **data source**, and Grafana provides the **visualization
 
 ---
 
-## 📚 References
+## References
 
 * [Prometheus Official Docs](https://prometheus.io/docs/introduction/overview/)
 * [Grafana Documentation](https://grafana.com/docs/)
 * [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)
 * [Alertmanager Configuration Guide](https://prometheus.io/docs/alerting/latest/configuration/)
 * [Grafana Dashboards Library](https://grafana.com/grafana/dashboards/)
+
+## Author
+ - Abhishek Rajput
