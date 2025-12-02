@@ -29,9 +29,17 @@
 Allow public access to the Prometheus endpoint:
 ```
 # For Prometheus Monitoring
-management.endpoints.web.exposure.include=health,info,prometheus
+# Expose necessary actuator endpoints
+management.endpoints.web.exposure.include=health,info,prometheus,loggers,metrics,env
+
+# Enable Prometheus endpoint
 management.endpoint.prometheus.enabled=true
+
+# Set server port
 management.server.port=8080
+
+# Show detailed health info
+management.endpoint.health.show-details=always
 ```
 ## 4. Configure Prometheus `scarap_configs`
 Example:
