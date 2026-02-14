@@ -17,6 +17,7 @@
 13. [Common Use Cases](#common-use-cases)
 14. [Best Practices](#best-practices)
 15. [References](#references)
+15. [Resources](#resources)
 15. [Author](#author)
 
 ---
@@ -241,6 +242,10 @@ Prometheus acts as the **data source**, and Grafana provides the **visualization
 * [PromQL Cheat Sheet](https://promlabs.com/promql-cheat-sheet/)
 * [Alertmanager Configuration Guide](https://prometheus.io/docs/alerting/latest/configuration/)
 * [Grafana Dashboards Library](https://grafana.com/grafana/dashboards/)
+
+## Resources
+
+* [Prometheus Architecture](https://www.youtube.com/watch?v=lVYRR_UNT0M)
 
 ## Author
  - Abhishek Rajput
