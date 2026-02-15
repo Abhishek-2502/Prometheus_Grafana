@@ -1,6 +1,6 @@
 ## 1. Install Docker, Kind, Kubectl
 - Follow this guide to install Docker: [Link](https://github.com/Abhishek-2502/Java_Jenkins_Docker_Setup_Cloud)
-- Follow this guide to install Kind and Kubectl: [Link](https://github.com/Abhishek-2502/K8s_Basics/tree/main/KIND_Cluster)
+- Follow this guide to install Kind and Kubectl: [Link](https://github.com/Abhishek-2502/Docker+K8s/tree/main/K8s/KIND_Cluster)
 
 ## 2. Install HELM 
 
