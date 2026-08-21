@@ -159,7 +159,7 @@ It integrates with multiple data sources — including Prometheus, Loki, InfluxD
 
 ## Key Features of Grafana
 
-* Rich **visualization options** (graphs, heatmaps, gauges, tables).
+* **Rich visualization options** (graphs, heatmaps, gauges, tables).
 * **Multi-source support** (Prometheus, Loki, MySQL, etc.).
 * **Templated dashboards** for dynamic views.
 * **Alerting and annotation** support.
