@@ -115,6 +115,11 @@ Grafana Credentials
  - `username:` admin
  - `password:` prom-operator
 
+Get Password using kubectl:
+```
+kubectl get secret kind-prometheus-kube-prome-prometheus -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode
+```
+
 
 ## 5. Prometheus Queries
 
