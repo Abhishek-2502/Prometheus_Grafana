@@ -60,6 +60,24 @@ kubectl get namespace
 ```
 helm list
 ```
+```
+kubectl get pods -n monitoring
+```
+You should see:
+
+- One or more `kube-state-metrics` pods. These pods query the Kubernetes API server and expose metrics about the state of Kubernetes objects, such as Pods, Deployments, Nodes, Services, ConfigMaps, Secrets, Jobs, and StatefulSets. They do not directly collect CPU, memory, disk, or network usage from the nodes.
+
+- One `node-exporter` pod per Kubernetes node. `node-exporter` normally runs as a DaemonSet, which schedules one pod on each eligible control-plane and worker node. These pods collect host-level metrics such as CPU usage, memory usage, disk space, disk I/O, and network statistics.
+
+For example, in a cluster with one control-plane node and two worker nodes, you may see:
+
+- One `kube-state-metrics` pod
+- Three `node-exporter` pods
+
+`kube-state-metrics` reports the desired and current state of Kubernetes resources, while `node-exporter` reports the operating-system and hardware condition of each node. Prometheus usually scrapes metrics from both components and stores them for querying and alerting.
+
+The exact number of pods may vary depending on the configured replicas, node taints, tolerations, and scheduling rules.
+
 ### Uninstall (if needed)
 ```
 helm uninstall kind-prometheus -n monitoring
