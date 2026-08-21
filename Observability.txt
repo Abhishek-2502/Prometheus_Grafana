@@ -2,3 +2,8 @@
 2. Logging: Logs (Why)
 3. Tracing: Traces (How)
 4. Alerting
+
+Tools:
+1. Prometheus, Grafana, Kibana
+2. Loki, Promtail
+3. Jaegar, Opentelemetry
