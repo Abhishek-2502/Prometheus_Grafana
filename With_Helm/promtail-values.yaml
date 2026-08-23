@@ -1,0 +1,14 @@
+config:
+  clients:
+    - url: http://kind-loki.monitoring.svc.cluster.local:3100/loki/api/v1/push
+
+podSecurityContext:
+  runAsUser: 0
+  runAsGroup: 0
+
+containerSecurityContext:
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+  allowPrivilegeEscalation: false

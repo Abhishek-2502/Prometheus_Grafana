@@ -10,6 +10,12 @@ data:
       scrape_interval: 15s
 
     scrape_configs:
-      - job_name: 'backend'
+      - job_name: 'prometheus'
         static_configs:
-          - targets: ['backend-service:5000']
+          - targets: ['localhost:9090']
+
+      # Add instrumented application targets here, for example:
+      # - job_name: 'backend'
+      #   metrics_path: '/metrics'
+      #   static_configs:
+      #     - targets: ['backend-service:5000']

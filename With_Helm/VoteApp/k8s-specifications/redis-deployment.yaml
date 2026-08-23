@@ -20,9 +20,31 @@ spec:
         ports:
         - containerPort: 6379
           name: redis
+        readinessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
         volumeMounts:
         - mountPath: /data
           name: redis-data
       volumes:
       - name: redis-data
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: redis-storage

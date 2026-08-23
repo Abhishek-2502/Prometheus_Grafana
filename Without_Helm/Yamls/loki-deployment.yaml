@@ -1,45 +1,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-deployment
+  name: loki-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: grafana
+      app: loki
   template:
     metadata:
       labels:
-        app: grafana
+        app: loki
     spec:
       containers:
-        - name: grafana
-          image: grafana/grafana:11.3.0
+        - name: loki
+          image: grafana/loki:3.5.0
+          args:
+            - "-config.file=/etc/loki/loki-config.yaml"
           ports:
-            - containerPort: 3000
+            - containerPort: 3100
           readinessProbe:
             httpGet:
-              path: /api/health
-              port: 3000
+              path: /ready
+              port: 3100
             initialDelaySeconds: 10
             periodSeconds: 10
           livenessProbe:
             httpGet:
-              path: /api/health
-              port: 3000
+              path: /ready
+              port: 3100
             initialDelaySeconds: 30
             periodSeconds: 30
           resources:
             requests:
               cpu: 100m
-              memory: 128Mi
+              memory: 256Mi
             limits:
               cpu: 500m
               memory: 512Mi
           volumeMounts:
+            - name: config-volume
+              mountPath: /etc/loki
             - name: storage-volume
-              mountPath: /var/lib/grafana
+              mountPath: /loki
       volumes:
+        - name: config-volume
+          configMap:
+            name: loki-config
         - name: storage-volume
           persistentVolumeClaim:
-            claimName: grafana-storage
+            claimName: loki-storage

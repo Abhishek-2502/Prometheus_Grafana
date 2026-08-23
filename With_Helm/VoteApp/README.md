@@ -17,7 +17,7 @@ docker exec -it redis redis-cli
 
 # K8S
 ```
-kubectl apply -f .
+kubectl apply -f k8s-specifications/
 ```
 
 ## Windows

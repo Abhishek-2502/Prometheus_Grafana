@@ -14,15 +14,39 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus:latest
+          image: prom/prometheus:v2.55.1
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
           ports:
             - containerPort: 9090
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 9090
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: 9090
+            initialDelaySeconds: 30
+            periodSeconds: 30
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
           volumeMounts:
             - name: config-volume
               mountPath: /etc/prometheus
+            - name: storage-volume
+              mountPath: /prometheus
       volumes:
         - name: config-volume
           configMap:
             name: prometheus-config
+        - name: storage-volume
+          persistentVolumeClaim:
+            claimName: prometheus-storage
