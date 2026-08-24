@@ -94,22 +94,17 @@ helm uninstall kind-promtail -n monitoring
 
 ## 4. Access Prometheus & Grafana
 
-### Linux
 ```
-kubectl port-forward svc/kind-prometheus-kube-prome-prometheus -n monitoring 9090:9090 --address=0.0.0.0 &
-
-kubectl port-forward svc/kind-prometheus-grafana -n monitoring 31000:80 --address=0.0.0.0 &
-
-kubectl port-forward svc/kind-loki -n monitoring 31001:3100 --address=0.0.0.0 &
+kubectl port-forward svc/kind-prometheus-kube-prome-prometheus -n monitoring 9090:9090
 ```
-
-### Windows
 ```
-kubectl port-forward svc/kind-prometheus-kube-prome-prometheus -n monitoring 9090:9090 
-
 kubectl port-forward svc/kind-prometheus-grafana -n monitoring 31000:80 
-
+```
+```
 kubectl port-forward svc/kind-loki -n monitoring 31001:3100
+```
+```
+kubectl port-forward daemonset/kind-promtail -n monitoring 3101:3101
 ```
 
 #### Access in Browser:
@@ -119,6 +114,8 @@ kubectl port-forward svc/kind-loki -n monitoring 31001:3100
  - Grafana: http://localhost:31000
 
  - Loki: http://localhost:31001/ready
+
+ - Promtail: http://localhost:3101
 
  - Prometheus Metrics: http://localhost:9090/metrics
 
@@ -171,4 +168,11 @@ sum(rate(container_network_transmit_bytes_total{namespace="default"}[5m])) by (p
 ## Cloud / Firewall Note
 
  - Expose Port `9090` (Prometheus) and `31000` (Grafana) in Security Group/Firewall Rules if using Cloud and want to access externally. Loki is a ClusterIP service and should normally remain internal.
+
+## 6. Cleanup
+
+This removes the Prometheus, Loki, Promtail, Grafana, and Alertmanager resources in that namespace:
+```
+kubectl delete namespace monitoring
+```
 

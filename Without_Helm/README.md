@@ -38,29 +38,33 @@ kubectl get pods
 ### Port-forward to test locally:
 ```bash
 kubectl port-forward svc/prometheus-service 30900:9090
+```
+```bash
 kubectl port-forward svc/loki-service 31000:3100
+```
+```bash
 kubectl port-forward svc/grafana-service 32000:3000
+```
+```bash
+kubectl port-forward daemonset/promtail 9080:9080
 ```
 
 **NOTE:** Change `prometheus-config.yaml` as per your backend.
 
 **Prometheus:** http://localhost:30900
 
-**Loki:** http://localhost:31000
+**Grafana:** http://localhost:32000
 
-Loki has no web UI at `/`. Check it with:
+**Loki** has no web UI at `/`. Check it with:
 ```
 http://localhost:31000/ready
 ```
 It should return `ready`. Use Grafana to browse logs through the Loki datasource.
 
-**Grafana:** http://localhost:32000
+**Promtail:** http://localhost:9080
 
 
-1. Go to Grafana UI: 
-```
-http://localhost:32000
-```
+1. Go to Grafana UI.
 
 2. Login (default: admin/admin)
 
@@ -86,7 +90,7 @@ The Promtail DaemonSet sends Kubernetes pod logs to Loki. After applying it, wai
 
 ### Cleanup
 
-Run this command from the `Without_Helm/Yamls` directory:
+Run this command from the `Without_Helm` directory:
 ```bash
 kubectl delete -f . --ignore-not-found
 ```
