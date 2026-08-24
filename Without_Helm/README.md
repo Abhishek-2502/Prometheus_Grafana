@@ -18,7 +18,7 @@ kubectl apply -f promtail-rbac.yaml
 kubectl apply -f promtail-daemonset.yaml
 ```
 
-### Deploy Prometheus
+### Deploy Prometheus:
 ```bash
 kubectl apply -f prometheus-deployment.yaml
 kubectl apply -f prometheus-service.yaml
@@ -30,7 +30,7 @@ kubectl apply -f grafana-deployment.yaml
 kubectl apply -f grafana-service.yaml
 ```
 
-### Verify
+### Verify:
 ```bash
 kubectl get pods
 ```
@@ -63,6 +63,7 @@ It should return `ready`. Use Grafana to browse logs through the Loki datasource
 
 **Promtail:** http://localhost:9080
 
+### Add Loki and Prometheus to Grafana:
 
 1. Go to Grafana UI.
 
@@ -88,7 +89,7 @@ The Promtail DaemonSet sends Kubernetes pod logs to Loki. After applying it, wai
 
 **NOTE:** Loki uses `emptyDir` storage in this example. Logs are lost when its pod is recreated; use a persistent volume for production.
 
-### Cleanup
+### Cleanup:
 
 Run this command from the `Without_Helm` directory:
 ```bash
